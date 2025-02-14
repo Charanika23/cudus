@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         // Send request to backend
-        fetch("http://localhost:5000/send-notification", {
+        fetch("https://cudus-backend.onrender.com/send-notification", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
