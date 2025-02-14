@@ -13,23 +13,23 @@ document.addEventListener("DOMContentLoaded", function () {
             message: message || "Hey! You have a new notification ❤️"
         };
             fetch("https://cudus-backend.onrender.com/send-notification", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(notificationData)
-        })
-        .then(response => {
-            if (!response.ok) {  
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(notificationData)
 })
-        .then(data => {
-            alert("Notification sent successfully!");
-            messageInput.value = ""; // Clear input after sending
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            alert("Failed to send notification.");
-        });
+.then(response => {
+    if (!response.ok) {  
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+})
+.then(data => {
+    alert("Notification sent successfully!");
+})
+.catch(error => {
+    console.error("Error:", error);
+    alert("Failed to send notification.");
+});
+
     });
 });
