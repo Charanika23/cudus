@@ -4,7 +4,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     notifyBtn.addEventListener("click", function () {
         const message = messageInput.value.trim();
-        
+        // Load environment variables safely
+const accountSid = process.env.TWILIO_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const twilioPhone = process.env.TWILIO_PHONE;
+const ashishPhone = process.env.ASHISH_PHONE;
+const charanikaPhone = process.env.CHARANIKA_PHONE;
+
+// Ensure required env variables are set
+if (!accountSid || !authToken || !twilioPhone || !ashishPhone || !charanikaPhone) {
+    console.error("❌ Missing environment variables! Check TWILIO_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE, ASHISH_PHONE, and CHARANIKA_PHONE.");
+    process.exit(1);
+}
+
         // Prepare data to send
         const notificationData = {
             sender: "charanika@gmail.com", // Change dynamically in future
