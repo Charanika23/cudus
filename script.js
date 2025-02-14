@@ -11,10 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
             receiver: "ashish@gmail.com", // Change dynamically in future
             message: message || "Hey! You have a new notification ❤️"
         };
-        fetch("https://cudus-backend.onrender.com", {
+        fetch("https://cudus-backend.onrender.com/send-notification", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(notificationData)
+});
+
 });
 
 
