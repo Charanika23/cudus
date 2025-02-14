@@ -28,12 +28,12 @@ if (!accountSid || !authToken || !twilioPhone || !ashishPhone || !charanikaPhone
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(notificationData)
         })
-        .then(response => response.json( {
-            if (!response.ok) {
+        .then(response => {
+            if (!response.ok) {  
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             return response.json();
-        }))
+})
         .then(data => {
             alert("Notification sent successfully!");
             messageInput.value = ""; // Clear input after sending
